@@ -4,15 +4,15 @@ This project provides a starting point for developing web applications using Ang
 
 ## Getting Started
 
-### 1. Clone the repository:
+### 1. Clone the repository
 
 git clone [https://github.com/your-username/default-project.git](https://github.com/your-username/default-project.git)
 
-### 2. Navigate to the project directory:
+### 2. Navigate to the project directory
 
 cd default-project
 
-### 3. Install dependencies for each framework:
+### 3. Install dependencies for each framework
 
 **Angular:**
 cd angular
@@ -25,7 +25,7 @@ npm install
 cd vue
 npm install
 
-### 4. Start the development servers for each framework:
+### 4. Start the development servers for each framework
 
 **Angular:**
 ng serve
