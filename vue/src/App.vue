@@ -1,34 +1,115 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue';
-import Demo from '@/components/Demo.vue';
+<script setup lang="ts">
+	import { RouterLink, RouterView } from 'vue-router';
+	import { pathNames } from '@/constants';
+	import { IonHeader } from '@ionic/vue';
+	import HelloWorld from '@/components/HelloWorld.vue';
 </script>
 
 <template>
-    <Demo></Demo>
-    <div>
-        <a href="https://vitejs.dev" target="_blank">
-            <img alt="Vite logo" class="logo" src="/vite.svg" />
-        </a>
-        <a href="https://vuejs.org/" target="_blank">
-            <img alt="Vue logo" class="logo vue" src="./assets/vue.svg" />
-        </a>
-    </div>
-    <HelloWorld msg="Vite + Vue" />
+	<ion-page class="container" :scroll-y="true">
+		<IonHeader class="header">
+			<img
+				alt="Vue logo"
+				class="logo"
+				src="@/assets/logo.svg"
+				width="125"
+				height="125"
+			/>
+
+			<div class="wrapper">
+				<HelloWorld msg="You did it!" />
+
+				<nav>
+					<RouterLink :to="pathNames.home">Home</RouterLink>
+					<RouterLink :to="pathNames.demo01">Demo 01</RouterLink>
+					<RouterLink to="/hihi">Error Link</RouterLink>
+				</nav>
+			</div>
+		</IonHeader>
+		<RouterView />
+	</ion-page>
 </template>
 
-<style scoped>
-.logo {
-    height: 6em;
-    padding: 1.5em;
-    will-change: filter;
-    transition: filter 300ms;
-}
+<style scoped lang="scss">
+	@use '@/assets/styles/utils';
 
-.logo:hover {
-    filter: drop-shadow(0 0 2em #646cffaa);
-}
+	.container {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		height: 100%;
 
-.logo.vue:hover {
-    filter: drop-shadow(0 0 2em #42b883aa);
-}
+		@include utils.Responsive(LG) {
+			flex-direction: column;
+			justify-content: center;
+			height: 100dvh;
+		}
+	}
+
+	header {
+		display: flex;
+		place-items: center;
+		max-height: 100vh;
+
+		line-height: 1.5;
+	}
+
+	.logo {
+		display: block;
+		margin: 0 auto 2rem;
+		width: 56px;
+		height: 56px;
+	}
+
+	nav {
+		width: 100%;
+		font-size: 12px;
+		text-align: center;
+		margin-top: 2rem;
+	}
+
+	nav a.router-link-exact-active {
+		color: var(--color-text, #f2f2f2);
+	}
+
+	nav a.router-link-exact-active:hover {
+		background-color: transparent;
+	}
+
+	nav a {
+		display: inline-block;
+		padding: 0 1rem;
+		border-left: 1px solid var(--color-border);
+	}
+
+	nav a:first-of-type {
+		border: 0;
+	}
+
+	@media (min-width: 1024px) {
+		header {
+			display: flex;
+			place-items: center;
+			padding-right: calc(var(--section-gap) / 4);
+		}
+
+		.logo {
+			margin: 0 2rem 0 0;
+		}
+
+		header .wrapper {
+			display: flex;
+			place-items: flex-start;
+			flex-wrap: wrap;
+		}
+
+		nav {
+			text-align: left;
+			margin-left: -1rem;
+			font-size: 1.8rem;
+
+			padding: 1rem 0;
+			margin-top: 1rem;
+		}
+	}
 </style>

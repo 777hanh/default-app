@@ -1,0 +1,28 @@
+:root {
+	--primary-color: #3498db;
+
+	--white-clr: #fff;
+	--dark-gray-clr: #333;
+
+	/* Form */
+	--alert-clr: #f00;
+	--alert-btn-bg-clr: #de1c3b;
+	--alert-text-clr: #ff5558;
+	--text-desc-clr: #6a6a6a;
+	--input-bg-clr: #f4f6f8;
+	--input-border-clr: #595a5c;
+	--input-placeholder-clr: #A3A5A8;
+	--input-text-color: #606060;
+
+	/* Ionic */
+	ion-content {
+		--background: initial;
+		--color: inherit;
+		--overflow: auto;
+	}
+
+	ion-list {
+		--ion-item-background: transparent;
+	}
+
+}

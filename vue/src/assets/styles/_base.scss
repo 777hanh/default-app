@@ -1,0 +1,13 @@
+@use './reset';
+@use './fonts';
+@use './color';
+@use './variables';
+
+html {
+	font-size: 62.5%;
+}
+
+body {
+	font-family: var(--primary-font), sans-serif;
+	line-height: 1.455;
+}

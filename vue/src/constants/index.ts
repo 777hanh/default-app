@@ -1,0 +1,1 @@
+export { pathNames } from './pathName';
