@@ -1,0 +1,1243 @@
+@import 'tailwindcss';
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Custom dark mode variant - responds to .dark class instead of prefers-color-scheme */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+	/* Border Radius
+     ====================================================================== */
+	--radius-rounded-sm: 2px;
+	--radius-rounded: 4px;
+	--radius-rounded-md: 6px;
+	--radius-rounded-lg: 8px;
+	--radius-rounded-xl: 12px;
+	--radius-rounded-2xl: 16px;
+	--radius-rounded-3xl: 24px;
+	--radius-rounded-full: 9999px;
+
+	/* Font Sizes
+     ====================================================================== */
+	--text-10: 10px;
+	--text-12: 12px;
+	--text-14: 14px;
+	--text-16: 16px;
+	--text-18: 18px;
+	--text-20: 20px;
+	--text-24: 24px;
+	--text-30: 30px;
+	--text-32: 32px;
+	--text-36: 36px;
+	--text-48: 48px;
+	--text-60: 60px;
+	--text-72: 72px;
+	--text-96: 96px;
+
+	/* Font Weights (for modifier syntax)
+     ====================================================================== */
+	--thin: 100;
+	--extralight: 200;
+	--light: 300;
+	--regular: 400;
+	--medium: 500;
+	--semibold: 600;
+	--bold: 700;
+	--extrabold: 800;
+	--black: 900;
+}
+
+:root {
+	/* Border Radius - Original naming convention
+     ====================================================================== */
+	--border-radius-rounded-sm: 2px;
+	--border-radius-rounded: 4px;
+	--border-radius-rounded-md: 6px;
+	--border-radius-rounded-lg: 8px;
+	--border-radius-rounded-xl: 12px;
+	--border-radius-rounded-2xl: 16px;
+	--border-radius-rounded-3xl: 24px;
+	--border-radius-rounded-full: 9999px;
+
+	/* Primary Colors - Original naming convention
+     ====================================================================== */
+	--colors-white: #ffffff;
+	--colors-black: #000000;
+	--colors-neutral-light-stroke: #e5e5e5;
+	/* Primary Colors - Blue Scale
+     ====================================================================== */
+	--colors-blue-50: #eff6ff;
+	--colors-blue-100: #dbeafe;
+	--colors-blue-200: #bfdcff;
+	--colors-blue-300: #93c5fd;
+	--colors-blue-400: #60a5fa;
+	--colors-blue-500: #3b82f6;
+	--colors-blue-600: #2563eb;
+	--colors-blue-700: #1d4ed8;
+	--colors-blue-800: #1e40af;
+	--colors-blue-900: #1e3a8a;
+	--colors-blue-950: #172554;
+
+	/* Primary Colors - Green Scale
+     ====================================================================== */
+	--colors-green-50: #f0fdf4;
+	--colors-green-100: #dcfce7;
+	--colors-green-200: #bbf7d0;
+	--colors-green-300: #86efac;
+	--colors-green-400: #4ade80;
+	--colors-green-500: #22c55e;
+	--colors-green-600: #16a34a;
+	--colors-green-700: #15803d;
+	--colors-green-800: #166534;
+	--colors-green-900: #14532d;
+	--colors-green-950: #052e16;
+
+	/* Primary Colors - Orange Scale
+     ====================================================================== */
+	--colors-orange-50: #fffbeb;
+	--colors-orange-100: #fef3c7;
+	--colors-orange-200: #fde68a;
+	--colors-orange-300: #fcd34d;
+	--colors-orange-400: #fbbf24;
+	--colors-orange-500: #f59e0b;
+	--colors-orange-600: #d97706;
+	--colors-orange-700: #b45309;
+	--colors-orange-800: #92400e;
+	--colors-orange-900: #78350f;
+	--colors-orange-950: #451a03;
+
+	/* Primary Colors - Red Scale
+     ====================================================================== */
+	--colors-red-50: #fef2f2;
+	--colors-red-100: #fee2e2;
+	--colors-red-200: #fecaca;
+	--colors-red-300: #fca5a5;
+	--colors-red-400: #f87171;
+	--colors-red-500: #ef4444;
+	--colors-red-600: #dc2626;
+	--colors-red-700: #b91c1c;
+	--colors-red-800: #991b1b;
+	--colors-red-900: #7f1d1d;
+	--colors-red-950: #450a0a;
+
+	/* Primary Colors - Gray Scale
+     ====================================================================== */
+	--colors-gray-50: #f9fafb;
+	--colors-gray-100: #f3f4f6;
+	--colors-gray-200: #e5e7eb;
+	--colors-gray-300: #d1d5db;
+	--colors-gray-400: #9ca3af;
+	--colors-gray-500: #6b7280;
+	--colors-gray-600: #4b5563;
+	--colors-gray-700: #374151;
+	--colors-gray-800: #1f2937;
+	--colors-gray-900: #111827;
+	--colors-gray-950: #030712;
+
+	/* Secondary Colors - Yellow Scale
+     ====================================================================== */
+	--colors-yellow-50: #fffee7;
+	--colors-yellow-100: #fffec1;
+	--colors-yellow-200: #fff886;
+	--colors-yellow-300: #ffec41;
+	--colors-yellow-400: #ffdb0d;
+	--colors-yellow-500: #ffcc00;
+	--colors-yellow-600: #d19500;
+	--colors-yellow-700: #a66a02;
+	--colors-yellow-800: #89530a;
+	--colors-yellow-900: #74430f;
+	--colors-yellow-950: #442304;
+
+	/* Secondary Colors - Lime Scale
+     ====================================================================== */
+	--colors-lime-50: #f7fee7;
+	--colors-lime-100: #ecfccb;
+	--colors-lime-200: #d9f99d;
+	--colors-lime-300: #bef264;
+	--colors-lime-400: #a3e635;
+	--colors-lime-500: #84cc16;
+	--colors-lime-600: #65a30d;
+	--colors-lime-700: #4d7c0f;
+	--colors-lime-800: #3f6212;
+	--colors-lime-900: #365314;
+	--colors-lime-950: #1a2e05;
+
+	/* Secondary Colors - Emerald Scale
+     ====================================================================== */
+	--colors-emerald-50: #ecfdf5;
+	--colors-emerald-100: #d1fae5;
+	--colors-emerald-200: #a7f3d0;
+	--colors-emerald-300: #6ee7b7;
+	--colors-emerald-400: #34d399;
+	--colors-emerald-500: #10b981;
+	--colors-emerald-600: #059669;
+	--colors-emerald-700: #047857;
+	--colors-emerald-800: #065f46;
+	--colors-emerald-900: #064e3b;
+	--colors-emerald-950: #022c22;
+
+	/* Secondary Colors - Teal Scale
+     ====================================================================== */
+	--colors-teal-50: #f0fdfa;
+	--colors-teal-100: #ccfbf1;
+	--colors-teal-200: #99f6e4;
+	--colors-teal-300: #5eead4;
+	--colors-teal-400: #2dd4bf;
+	--colors-teal-500: #14b8a6;
+	--colors-teal-600: #0d9488;
+	--colors-teal-700: #0f766e;
+	--colors-teal-800: #115e59;
+	--colors-teal-900: #134e4a;
+	--colors-teal-950: #042f2e;
+
+	/* Secondary Colors - Cyan Scale
+     ====================================================================== */
+	--colors-cyan-50: #ecfeff;
+	--colors-cyan-100: #cffafe;
+	--colors-cyan-200: #a5f3fc;
+	--colors-cyan-300: #67e8f9;
+	--colors-cyan-400: #22d3ee;
+	--colors-cyan-500: #06b6d4;
+	--colors-cyan-600: #0891b2;
+	--colors-cyan-700: #0e7490;
+	--colors-cyan-800: #155e75;
+	--colors-cyan-900: #164e63;
+	--colors-cyan-950: #083344;
+
+	/* Secondary Colors - Sky Scale
+     ====================================================================== */
+	--colors-sky-50: #f0f9ff;
+	--colors-sky-100: #e0f2fe;
+	--colors-sky-200: #bae6fd;
+	--colors-sky-300: #7dd3fc;
+	--colors-sky-400: #38bdf8;
+	--colors-sky-500: #0ea5e9;
+	--colors-sky-600: #0284c7;
+	--colors-sky-700: #0369a1;
+	--colors-sky-800: #075985;
+	--colors-sky-900: #0c4a6e;
+	--colors-sky-950: #082f49;
+
+	/* Secondary Colors - Indigo Scale
+     ====================================================================== */
+	--colors-indigo-50: #eef2ff;
+	--colors-indigo-100: #e0e7ff;
+	--colors-indigo-200: #c7d2fe;
+	--colors-indigo-300: #a5b4fc;
+	--colors-indigo-400: #818cf8;
+	--colors-indigo-500: #6366f1;
+	--colors-indigo-600: #4f46e5;
+	--colors-indigo-700: #4338ca;
+	--colors-indigo-800: #3730a3;
+	--colors-indigo-900: #312e81;
+	--colors-indigo-950: #1e1b4b;
+
+	/* Secondary Colors - Violet Scale
+     ====================================================================== */
+	--colors-violet-50: #f5f3ff;
+	--colors-violet-100: #ede9fe;
+	--colors-violet-200: #ddd6fe;
+	--colors-violet-300: #c4b5fd;
+	--colors-violet-400: #a78bfa;
+	--colors-violet-500: #8b5cf6;
+	--colors-violet-600: #7c3aed;
+	--colors-violet-700: #6d28d9;
+	--colors-violet-800: #5b21b6;
+	--colors-violet-900: #4c1d95;
+	--colors-violet-950: #2e1065;
+
+	/* Secondary Colors - Purple Scale
+     ====================================================================== */
+	--colors-purple-50: #faf5ff;
+	--colors-purple-100: #f3e8ff;
+	--colors-purple-200: #e9d5ff;
+	--colors-purple-300: #d8b4fe;
+	--colors-purple-400: #c084fc;
+	--colors-purple-500: #a855f7;
+	--colors-purple-600: #9333ea;
+	--colors-purple-700: #7e22ce;
+	--colors-purple-800: #6b21a8;
+	--colors-purple-900: #581c87;
+	--colors-purple-950: #3b0764;
+
+	/* Secondary Colors - Fuchsia Scale
+     ====================================================================== */
+	--colors-fuchsia-50: #fdf4ff;
+	--colors-fuchsia-100: #fae8ff;
+	--colors-fuchsia-200: #f5d0fe;
+	--colors-fuchsia-300: #f0abfc;
+	--colors-fuchsia-400: #e879f9;
+	--colors-fuchsia-500: #d946ef;
+	--colors-fuchsia-600: #c026d3;
+	--colors-fuchsia-700: #a21caf;
+	--colors-fuchsia-800: #86198f;
+	--colors-fuchsia-900: #701a75;
+	--colors-fuchsia-950: #4a044e;
+
+	/* Secondary Colors - Pink Scale
+     ====================================================================== */
+	--colors-pink-50: #fdf2f8;
+	--colors-pink-100: #fce7f3;
+	--colors-pink-200: #fbcfe8;
+	--colors-pink-300: #f9a8d4;
+	--colors-pink-400: #f472b6;
+	--colors-pink-500: #ec4899;
+	--colors-pink-600: #db2777;
+	--colors-pink-700: #be185d;
+	--colors-pink-800: #9d174d;
+	--colors-pink-900: #831843;
+	--colors-pink-950: #500724;
+
+	/* Secondary Colors - Rose Scale
+     ====================================================================== */
+	--colors-rose-50: #fff1f2;
+	--colors-rose-100: #ffe4e6;
+	--colors-rose-200: #fecdd3;
+	--colors-rose-300: #fda4af;
+	--colors-rose-400: #fb7185;
+	--colors-rose-500: #f43f5e;
+	--colors-rose-600: #e11d48;
+	--colors-rose-700: #be123c;
+	--colors-rose-800: #9f1239;
+	--colors-rose-900: #881337;
+	--colors-rose-950: #4c0519;
+
+	/* Secondary Colors - Brown Scale
+     ====================================================================== */
+	--colors-brown-50: #f6f5f0;
+	--colors-brown-100: #e9e5d8;
+	--colors-brown-200: #d5cab3;
+	--colors-brown-300: #bcaa88;
+	--colors-brown-400: #a88e67;
+	--colors-brown-500: #a2845e;
+	--colors-brown-600: #83664b;
+	--colors-brown-700: #6a4f3e;
+	--colors-brown-800: #5b4438;
+	--colors-brown-900: #4f3c34;
+	--colors-brown-950: #2d1f1b;
+}
+
+/* ============================================================================
+   Dark Mode Color Overrides
+   ============================================================================
+   When the .dark class is applied to the root element, these color variables
+   are overridden to provide a dark theme with proper contrast.
+
+   Usage:
+   - Add/remove 'dark' class on <html> or :root element to toggle dark mode
+   - Works with existing useThemeSwitcher composable
+   ============================================================================ */
+
+/* ============================================================================
+   @theme inline - Makes Tailwind utilities respond to dark mode
+   ============================================================================
+   This block tells Tailwind to reference the CSS variables defined above,
+   which change when .dark class is applied. This makes utilities like
+   bg-blue-600 automatically update in dark mode.
+   ============================================================================ */
+
+.dark {
+	/* Primary Colors - White & Black (Inverted)
+       ====================================================================== */
+	--colors-white: #0a0a0a;
+	--colors-black: #fafafa;
+
+	/* Primary Colors - Blue Scale (Adjusted for dark backgrounds)
+       ====================================================================== */
+	--colors-blue-50: #172554;
+	--colors-blue-100: #1e3a8a;
+	--colors-blue-200: #1e40af;
+	--colors-blue-300: #1d4ed8;
+	--colors-blue-400: #2563eb;
+	--colors-blue-500: #3b82f6;
+	--colors-blue-600: #60a5fa;
+	--colors-blue-700: #93c5fd;
+	--colors-blue-800: #bfdcff;
+	--colors-blue-900: #dbeafe;
+	--colors-blue-950: #eff6ff;
+
+	/* Primary Colors - Green Scale (Adjusted for dark backgrounds)
+       ====================================================================== */
+	--colors-green-50: #052e16;
+	--colors-green-100: #14532d;
+	--colors-green-200: #166534;
+	--colors-green-300: #15803d;
+	--colors-green-400: #16a34a;
+	--colors-green-500: #22c55e;
+	--colors-green-600: #4ade80;
+	--colors-green-700: #86efac;
+	--colors-green-800: #bbf7d0;
+	--colors-green-900: #dcfce7;
+	--colors-green-950: #f0fdf4;
+
+	/* Primary Colors - Orange Scale (Adjusted for dark backgrounds)
+       ====================================================================== */
+	--colors-orange-50: #451a03;
+	--colors-orange-100: #78350f;
+	--colors-orange-200: #92400e;
+	--colors-orange-300: #b45309;
+	--colors-orange-400: #d97706;
+	--colors-orange-500: #f59e0b;
+	--colors-orange-600: #fbbf24;
+	--colors-orange-700: #fcd34d;
+	--colors-orange-800: #fde68a;
+	--colors-orange-900: #fef3c7;
+	--colors-orange-950: #fffbeb;
+
+	/* Primary Colors - Red Scale (Adjusted for dark backgrounds)
+       ====================================================================== */
+	--colors-red-50: #450a0a;
+	--colors-red-100: #7f1d1d;
+	--colors-red-200: #991b1b;
+	--colors-red-300: #b91c1c;
+	--colors-red-400: #dc2626;
+	--colors-red-500: #ef4444;
+	--colors-red-600: #f87171;
+	--colors-red-700: #fca5a5;
+	--colors-red-800: #fecaca;
+	--colors-red-900: #fee2e2;
+	--colors-red-950: #fef2f2;
+
+	/* Primary Colors - Gray Scale (Inverted for dark mode)
+       ====================================================================== */
+	--colors-gray-50: #030712;
+	--colors-gray-100: #111827;
+	--colors-gray-200: #1f2937;
+	--colors-gray-300: #374151;
+	--colors-gray-400: #4b5563;
+	--colors-gray-500: #6b7280;
+	--colors-gray-600: #9ca3af;
+	--colors-gray-700: #d1d5db;
+	--colors-gray-800: #e5e7eb;
+	--colors-gray-900: #f3f4f6;
+	--colors-gray-950: #f9fafb;
+
+	/* Secondary Colors - Yellow Scale (Adjusted for dark backgrounds)
+       ====================================================================== */
+	--colors-yellow-50: #442304;
+	--colors-yellow-100: #74430f;
+	--colors-yellow-200: #89530a;
+	--colors-yellow-300: #a66a02;
+	--colors-yellow-400: #d19500;
+	--colors-yellow-500: #ffcc00;
+	--colors-yellow-600: #ffdb0d;
+	--colors-yellow-700: #ffec41;
+	--colors-yellow-800: #fff886;
+	--colors-yellow-900: #fffec1;
+	--colors-yellow-950: #fffee7;
+
+	/* Secondary Colors - Lime Scale (Adjusted for dark backgrounds)
+       ====================================================================== */
+	--colors-lime-50: #1a2e05;
+	--colors-lime-100: #365314;
+	--colors-lime-200: #3f6212;
+	--colors-lime-300: #4d7c0f;
+	--colors-lime-400: #65a30d;
+	--colors-lime-500: #84cc16;
+	--colors-lime-600: #a3e635;
+	--colors-lime-700: #bef264;
+	--colors-lime-800: #d9f99d;
+	--colors-lime-900: #ecfccb;
+	--colors-lime-950: #f7fee7;
+
+	/* Secondary Colors - Emerald Scale (Adjusted for dark backgrounds)
+       ====================================================================== */
+	--colors-emerald-50: #022c22;
+	--colors-emerald-100: #064e3b;
+	--colors-emerald-200: #065f46;
+	--colors-emerald-300: #047857;
+	--colors-emerald-400: #059669;
+	--colors-emerald-500: #10b981;
+	--colors-emerald-600: #34d399;
+	--colors-emerald-700: #6ee7b7;
+	--colors-emerald-800: #a7f3d0;
+	--colors-emerald-900: #d1fae5;
+	--colors-emerald-950: #ecfdf5;
+
+	/* Secondary Colors - Teal Scale (Adjusted for dark backgrounds)
+       ====================================================================== */
+	--colors-teal-50: #042f2e;
+	--colors-teal-100: #134e4a;
+	--colors-teal-200: #115e59;
+	--colors-teal-300: #0f766e;
+	--colors-teal-400: #0d9488;
+	--colors-teal-500: #14b8a6;
+	--colors-teal-600: #2dd4bf;
+	--colors-teal-700: #5eead4;
+	--colors-teal-800: #99f6e4;
+	--colors-teal-900: #ccfbf1;
+	--colors-teal-950: #f0fdfa;
+
+	/* Secondary Colors - Cyan Scale (Adjusted for dark backgrounds)
+       ====================================================================== */
+	--colors-cyan-50: #083344;
+	--colors-cyan-100: #164e63;
+	--colors-cyan-200: #155e75;
+	--colors-cyan-300: #0e7490;
+	--colors-cyan-400: #0891b2;
+	--colors-cyan-500: #06b6d4;
+	--colors-cyan-600: #22d3ee;
+	--colors-cyan-700: #67e8f9;
+	--colors-cyan-800: #a5f3fc;
+	--colors-cyan-900: #cffafe;
+	--colors-cyan-950: #ecfeff;
+
+	/* Secondary Colors - Sky Scale (Adjusted for dark backgrounds)
+       ====================================================================== */
+	--colors-sky-50: #082f49;
+	--colors-sky-100: #0c4a6e;
+	--colors-sky-200: #075985;
+	--colors-sky-300: #0369a1;
+	--colors-sky-400: #0284c7;
+	--colors-sky-500: #0ea5e9;
+	--colors-sky-600: #38bdf8;
+	--colors-sky-700: #7dd3fc;
+	--colors-sky-800: #bae6fd;
+	--colors-sky-900: #e0f2fe;
+	--colors-sky-950: #f0f9ff;
+
+	/* Secondary Colors - Indigo Scale (Adjusted for dark backgrounds)
+       ====================================================================== */
+	--colors-indigo-50: #1e1b4b;
+	--colors-indigo-100: #312e81;
+	--colors-indigo-200: #3730a3;
+	--colors-indigo-300: #4338ca;
+	--colors-indigo-400: #4f46e5;
+	--colors-indigo-500: #6366f1;
+	--colors-indigo-600: #818cf8;
+	--colors-indigo-700: #a5b4fc;
+	--colors-indigo-800: #c7d2fe;
+	--colors-indigo-900: #e0e7ff;
+	--colors-indigo-950: #eef2ff;
+
+	/* Secondary Colors - Violet Scale (Adjusted for dark backgrounds)
+       ====================================================================== */
+	--colors-violet-50: #2e1065;
+	--colors-violet-100: #4c1d95;
+	--colors-violet-200: #5b21b6;
+	--colors-violet-300: #6d28d9;
+	--colors-violet-400: #7c3aed;
+	--colors-violet-500: #8b5cf6;
+	--colors-violet-600: #a78bfa;
+	--colors-violet-700: #c4b5fd;
+	--colors-violet-800: #ddd6fe;
+	--colors-violet-900: #ede9fe;
+	--colors-violet-950: #f5f3ff;
+
+	/* Secondary Colors - Purple Scale (Adjusted for dark backgrounds)
+       ====================================================================== */
+	--colors-purple-50: #3b0764;
+	--colors-purple-100: #581c87;
+	--colors-purple-200: #6b21a8;
+	--colors-purple-300: #7e22ce;
+	--colors-purple-400: #9333ea;
+	--colors-purple-500: #a855f7;
+	--colors-purple-600: #c084fc;
+	--colors-purple-700: #d8b4fe;
+	--colors-purple-800: #e9d5ff;
+	--colors-purple-900: #f3e8ff;
+	--colors-purple-950: #faf5ff;
+
+	/* Secondary Colors - Fuchsia Scale (Adjusted for dark backgrounds)
+       ====================================================================== */
+	--colors-fuchsia-50: #4a044e;
+	--colors-fuchsia-100: #701a75;
+	--colors-fuchsia-200: #86198f;
+	--colors-fuchsia-300: #a21caf;
+	--colors-fuchsia-400: #c026d3;
+	--colors-fuchsia-500: #d946ef;
+	--colors-fuchsia-600: #e879f9;
+	--colors-fuchsia-700: #f0abfc;
+	--colors-fuchsia-800: #f5d0fe;
+	--colors-fuchsia-900: #fae8ff;
+	--colors-fuchsia-950: #fdf4ff;
+
+	/* Secondary Colors - Pink Scale (Adjusted for dark backgrounds)
+       ====================================================================== */
+	--colors-pink-50: #500724;
+	--colors-pink-100: #831843;
+	--colors-pink-200: #9d174d;
+	--colors-pink-300: #be185d;
+	--colors-pink-400: #db2777;
+	--colors-pink-500: #ec4899;
+	--colors-pink-600: #f472b6;
+	--colors-pink-700: #f9a8d4;
+	--colors-pink-800: #fbcfe8;
+	--colors-pink-900: #fce7f3;
+	--colors-pink-950: #fdf2f8;
+
+	/* Secondary Colors - Rose Scale (Adjusted for dark backgrounds)
+       ====================================================================== */
+	--colors-rose-50: #4c0519;
+	--colors-rose-100: #881337;
+	--colors-rose-200: #9f1239;
+	--colors-rose-300: #be123c;
+	--colors-rose-400: #e11d48;
+	--colors-rose-500: #f43f5e;
+	--colors-rose-600: #fb7185;
+	--colors-rose-700: #fda4af;
+	--colors-rose-800: #fecdd3;
+	--colors-rose-900: #ffe4e6;
+	--colors-rose-950: #fff1f2;
+
+	/* Secondary Colors - Brown Scale (Adjusted for dark backgrounds)
+       ====================================================================== */
+	--colors-brown-50: #2d1f1b;
+	--colors-brown-100: #4f3c34;
+	--colors-brown-200: #5b4438;
+	--colors-brown-300: #6a4f3e;
+	--colors-brown-400: #83664b;
+	--colors-brown-500: #a2845e;
+	--colors-brown-600: #a88e67;
+	--colors-brown-700: #bcaa88;
+	--colors-brown-800: #d5cab3;
+	--colors-brown-900: #e9e5d8;
+	--colors-brown-950: #f6f5f0;
+}
+
+/* Áp dụng cho toàn bộ các phần tử quan trọng */
+body,
+div,
+header,
+nav,
+footer,
+section,
+aside,
+button,
+input,
+span,
+p {
+	/* Các thuộc tính thay đổi khi đổi theme */
+	transition:
+		background-color 0.3s ease,
+		color 0.3s ease,
+		border-color 0.3s ease,
+		box-shadow 0.3s ease;
+}
+
+@theme inline {
+	--color: var(--colors-blue-600);
+	--color: #d0d3d6;
+	--color-warning: var(--colors-orange-500);
+	--color-success: var(--colors-green-500);
+	--color-danger: var(--colors-red-500);
+	--color-info: var(--colors-indigo-500);
+	--color-border: var(--colors-neutral-light-stroke);
+
+	/* Primary Colors - Blue Scale */
+	--color-blue-50: var(--colors-blue-50);
+	--color-blue-100: var(--colors-blue-100);
+	--color-blue-200: var(--colors-blue-200);
+	--color-blue-300: var(--colors-blue-300);
+	--color-blue-400: var(--colors-blue-400);
+	--color-blue-500: var(--colors-blue-500);
+	--color-blue-600: var(--colors-blue-600);
+	--color-blue-700: var(--colors-blue-700);
+	--color-blue-800: var(--colors-blue-800);
+	--color-blue-900: var(--colors-blue-900);
+	--color-blue-950: var(--colors-blue-950);
+
+	/* Primary Colors - Green Scale */
+	--color-green-50: var(--colors-green-50);
+	--color-green-100: var(--colors-green-100);
+	--color-green-200: var(--colors-green-200);
+	--color-green-300: var(--colors-green-300);
+	--color-green-400: var(--colors-green-400);
+	--color-green-500: var(--colors-green-500);
+	--color-green-600: var(--colors-green-600);
+	--color-green-700: var(--colors-green-700);
+	--color-green-800: var(--colors-green-800);
+	--color-green-900: var(--colors-green-900);
+	--color-green-950: var(--colors-green-950);
+
+	/* Primary Colors - Orange Scale */
+	--color-orange-50: var(--colors-orange-50);
+	--color-orange-100: var(--colors-orange-100);
+	--color-orange-200: var(--colors-orange-200);
+	--color-orange-300: var(--colors-orange-300);
+	--color-orange-400: var(--colors-orange-400);
+	--color-orange-500: var(--colors-orange-500);
+	--color-orange-600: var(--colors-orange-600);
+	--color-orange-700: var(--colors-orange-700);
+	--color-orange-800: var(--colors-orange-800);
+	--color-orange-900: var(--colors-orange-900);
+	--color-orange-950: var(--colors-orange-950);
+
+	/* Primary Colors - Red Scale */
+	--color-red-50: var(--colors-red-50);
+	--color-red-100: var(--colors-red-100);
+	--color-red-200: var(--colors-red-200);
+	--color-red-300: var(--colors-red-300);
+	--color-red-400: var(--colors-red-400);
+	--color-red-500: var(--colors-red-500);
+	--color-red-600: var(--colors-red-600);
+	--color-red-700: var(--colors-red-700);
+	--color-red-800: var(--colors-red-800);
+	--color-red-900: var(--colors-red-900);
+	--color-red-950: var(--colors-red-950);
+
+	/* Primary Colors - Gray Scale */
+	--color-gray-50: var(--colors-gray-50);
+	--color-gray-100: var(--colors-gray-100);
+	--color-gray-200: var(--colors-gray-200);
+	--color-gray-300: var(--colors-gray-300);
+	--color-gray-400: var(--colors-gray-400);
+	--color-gray-500: var(--colors-gray-500);
+	--color-gray-600: var(--colors-gray-600);
+	--color-gray-700: var(--colors-gray-700);
+	--color-gray-800: var(--colors-gray-800);
+	--color-gray-900: var(--colors-gray-900);
+	--color-gray-950: var(--colors-gray-950);
+
+	/* White & Black */
+	--color-white: var(--colors-white);
+	--color-black: var(--colors-black);
+}
+
+/* ============================================================================
+   Custom Utilities: Combined Font Size + Weight
+   ============================================================================
+   Static utility definitions for font-size + font-weight combinations.
+
+   Usage:
+   - text-10-thin       → 10px with weight 100
+   - text-14-regular    → 14px with weight 400
+   - text-24-bold       → 24px with weight 700
+   - text-48-black      → 48px with weight 900
+
+   Supports all Tailwind variants:
+   - hover:text-14-bold
+   - md:text-24-semibold
+   - dark:text-16-medium
+   ============================================================================ */
+
+/* Size: 10px */
+@utility text-10-thin {
+	font-size: var(--text-10);
+	font-weight: var(--thin);
+}
+@utility text-10-extralight {
+	font-size: var(--text-10);
+	font-weight: var(--extralight);
+}
+@utility text-10-light {
+	font-size: var(--text-10);
+	font-weight: var(--light);
+}
+@utility text-10-regular {
+	font-size: var(--text-10);
+	font-weight: var(--regular);
+}
+@utility text-10-medium {
+	font-size: var(--text-10);
+	font-weight: var(--medium);
+}
+@utility text-10-semibold {
+	font-size: var(--text-10);
+	font-weight: var(--semibold);
+}
+@utility text-10-bold {
+	font-size: var(--text-10);
+	font-weight: var(--bold);
+}
+@utility text-10-extrabold {
+	font-size: var(--text-10);
+	font-weight: var(--extrabold);
+}
+@utility text-10-black {
+	font-size: var(--text-10);
+	font-weight: var(--black);
+}
+
+/* Size: 12px */
+@utility text-12-thin {
+	font-size: var(--text-12);
+	font-weight: var(--thin);
+}
+@utility text-12-extralight {
+	font-size: var(--text-12);
+	font-weight: var(--extralight);
+}
+@utility text-12-light {
+	font-size: var(--text-12);
+	font-weight: var(--light);
+}
+@utility text-12-regular {
+	font-size: var(--text-12);
+	font-weight: var(--regular);
+}
+@utility text-12-medium {
+	font-size: var(--text-12);
+	font-weight: var(--medium);
+}
+@utility text-12-semibold {
+	font-size: var(--text-12);
+	font-weight: var(--semibold);
+}
+@utility text-12-bold {
+	font-size: var(--text-12);
+	font-weight: var(--bold);
+}
+@utility text-12-extrabold {
+	font-size: var(--text-12);
+	font-weight: var(--extrabold);
+}
+@utility text-12-black {
+	font-size: var(--text-12);
+	font-weight: var(--black);
+}
+
+/* Size: 14px */
+@utility text-14-thin {
+	font-size: var(--text-14);
+	font-weight: var(--thin);
+}
+@utility text-14-extralight {
+	font-size: var(--text-14);
+	font-weight: var(--extralight);
+}
+@utility text-14-light {
+	font-size: var(--text-14);
+	font-weight: var(--light);
+}
+@utility text-14-regular {
+	font-size: var(--text-14);
+	font-weight: var(--regular);
+}
+@utility text-14-medium {
+	font-size: var(--text-14);
+	font-weight: var(--medium);
+}
+@utility text-14-semibold {
+	font-size: var(--text-14);
+	font-weight: var(--semibold);
+}
+@utility text-14-bold {
+	font-size: var(--text-14);
+	font-weight: var(--bold);
+}
+@utility text-14-extrabold {
+	font-size: var(--text-14);
+	font-weight: var(--extrabold);
+}
+@utility text-14-black {
+	font-size: var(--text-14);
+	font-weight: var(--black);
+}
+
+/* Size: 16px */
+@utility text-16-thin {
+	font-size: var(--text-16);
+	font-weight: var(--thin);
+}
+@utility text-16-extralight {
+	font-size: var(--text-16);
+	font-weight: var(--extralight);
+}
+@utility text-16-light {
+	font-size: var(--text-16);
+	font-weight: var(--light);
+}
+@utility text-16-regular {
+	font-size: var(--text-16);
+	font-weight: var(--regular);
+}
+@utility text-16-medium {
+	font-size: var(--text-16);
+	font-weight: var(--medium);
+}
+@utility text-16-semibold {
+	font-size: var(--text-16);
+	font-weight: var(--semibold);
+}
+@utility text-16-bold {
+	font-size: var(--text-16);
+	font-weight: var(--bold);
+}
+@utility text-16-extrabold {
+	font-size: var(--text-16);
+	font-weight: var(--extrabold);
+}
+@utility text-16-black {
+	font-size: var(--text-16);
+	font-weight: var(--black);
+}
+
+/* Size: 18px */
+@utility text-18-thin {
+	font-size: var(--text-18);
+	font-weight: var(--thin);
+}
+@utility text-18-extralight {
+	font-size: var(--text-18);
+	font-weight: var(--extralight);
+}
+@utility text-18-light {
+	font-size: var(--text-18);
+	font-weight: var(--light);
+}
+@utility text-18-regular {
+	font-size: var(--text-18);
+	font-weight: var(--regular);
+}
+@utility text-18-medium {
+	font-size: var(--text-18);
+	font-weight: var(--medium);
+}
+@utility text-18-semibold {
+	font-size: var(--text-18);
+	font-weight: var(--semibold);
+}
+@utility text-18-bold {
+	font-size: var(--text-18);
+	font-weight: var(--bold);
+}
+@utility text-18-extrabold {
+	font-size: var(--text-18);
+	font-weight: var(--extrabold);
+}
+@utility text-18-black {
+	font-size: var(--text-18);
+	font-weight: var(--black);
+}
+
+/* Size: 20px */
+@utility text-20-thin {
+	font-size: var(--text-20);
+	font-weight: var(--thin);
+}
+@utility text-20-extralight {
+	font-size: var(--text-20);
+	font-weight: var(--extralight);
+}
+@utility text-20-light {
+	font-size: var(--text-20);
+	font-weight: var(--light);
+}
+@utility text-20-regular {
+	font-size: var(--text-20);
+	font-weight: var(--regular);
+}
+@utility text-20-medium {
+	font-size: var(--text-20);
+	font-weight: var(--medium);
+}
+@utility text-20-semibold {
+	font-size: var(--text-20);
+	font-weight: var(--semibold);
+}
+@utility text-20-bold {
+	font-size: var(--text-20);
+	font-weight: var(--bold);
+}
+@utility text-20-extrabold {
+	font-size: var(--text-20);
+	font-weight: var(--extrabold);
+}
+@utility text-20-black {
+	font-size: var(--text-20);
+	font-weight: var(--black);
+}
+
+/* Size: 24px */
+@utility text-24-thin {
+	font-size: var(--text-24);
+	font-weight: var(--thin);
+}
+@utility text-24-extralight {
+	font-size: var(--text-24);
+	font-weight: var(--extralight);
+}
+@utility text-24-light {
+	font-size: var(--text-24);
+	font-weight: var(--light);
+}
+@utility text-24-regular {
+	font-size: var(--text-24);
+	font-weight: var(--regular);
+}
+@utility text-24-medium {
+	font-size: var(--text-24);
+	font-weight: var(--medium);
+}
+@utility text-24-semibold {
+	font-size: var(--text-24);
+	font-weight: var(--semibold);
+}
+@utility text-24-bold {
+	font-size: var(--text-24);
+	font-weight: var(--bold);
+}
+@utility text-24-extrabold {
+	font-size: var(--text-24);
+	font-weight: var(--extrabold);
+}
+@utility text-24-black {
+	font-size: var(--text-24);
+	font-weight: var(--black);
+}
+
+/* Size: 30px */
+@utility text-30-thin {
+	font-size: var(--text-30);
+	font-weight: var(--thin);
+}
+@utility text-30-extralight {
+	font-size: var(--text-30);
+	font-weight: var(--extralight);
+}
+@utility text-30-light {
+	font-size: var(--text-30);
+	font-weight: var(--light);
+}
+@utility text-30-regular {
+	font-size: var(--text-30);
+	font-weight: var(--regular);
+}
+@utility text-30-medium {
+	font-size: var(--text-30);
+	font-weight: var(--medium);
+}
+@utility text-30-semibold {
+	font-size: var(--text-30);
+	font-weight: var(--semibold);
+}
+@utility text-30-bold {
+	font-size: var(--text-30);
+	font-weight: var(--bold);
+}
+@utility text-30-extrabold {
+	font-size: var(--text-30);
+	font-weight: var(--extrabold);
+}
+@utility text-30-black {
+	font-size: var(--text-30);
+	font-weight: var(--black);
+}
+
+/* Size: 32px */
+@utility text-32-thin {
+	font-size: var(--text-32);
+	font-weight: var(--thin);
+}
+@utility text-32-extralight {
+	font-size: var(--text-32);
+	font-weight: var(--extralight);
+}
+@utility text-32-light {
+	font-size: var(--text-32);
+	font-weight: var(--light);
+}
+@utility text-32-regular {
+	font-size: var(--text-32);
+	font-weight: var(--regular);
+}
+@utility text-32-medium {
+	font-size: var(--text-32);
+	font-weight: var(--medium);
+}
+@utility text-32-semibold {
+	font-size: var(--text-32);
+	font-weight: var(--semibold);
+}
+@utility text-32-bold {
+	font-size: var(--text-32);
+	font-weight: var(--bold);
+}
+@utility text-32-extrabold {
+	font-size: var(--text-32);
+	font-weight: var(--extrabold);
+}
+@utility text-32-black {
+	font-size: var(--text-32);
+	font-weight: var(--black);
+}
+
+/* Size: 36px */
+@utility text-36-thin {
+	font-size: var(--text-36);
+	font-weight: var(--thin);
+}
+@utility text-36-extralight {
+	font-size: var(--text-36);
+	font-weight: var(--extralight);
+}
+@utility text-36-light {
+	font-size: var(--text-36);
+	font-weight: var(--light);
+}
+@utility text-36-regular {
+	font-size: var(--text-36);
+	font-weight: var(--regular);
+}
+@utility text-36-medium {
+	font-size: var(--text-36);
+	font-weight: var(--medium);
+}
+@utility text-36-semibold {
+	font-size: var(--text-36);
+	font-weight: var(--semibold);
+}
+@utility text-36-bold {
+	font-size: var(--text-36);
+	font-weight: var(--bold);
+}
+@utility text-36-extrabold {
+	font-size: var(--text-36);
+	font-weight: var(--extrabold);
+}
+@utility text-36-black {
+	font-size: var(--text-36);
+	font-weight: var(--black);
+}
+
+/* Size: 48px */
+@utility text-48-thin {
+	font-size: var(--text-48);
+	font-weight: var(--thin);
+}
+@utility text-48-extralight {
+	font-size: var(--text-48);
+	font-weight: var(--extralight);
+}
+@utility text-48-light {
+	font-size: var(--text-48);
+	font-weight: var(--light);
+}
+@utility text-48-regular {
+	font-size: var(--text-48);
+	font-weight: var(--regular);
+}
+@utility text-48-medium {
+	font-size: var(--text-48);
+	font-weight: var(--medium);
+}
+@utility text-48-semibold {
+	font-size: var(--text-48);
+	font-weight: var(--semibold);
+}
+@utility text-48-bold {
+	font-size: var(--text-48);
+	font-weight: var(--bold);
+}
+@utility text-48-extrabold {
+	font-size: var(--text-48);
+	font-weight: var(--extrabold);
+}
+@utility text-48-black {
+	font-size: var(--text-48);
+	font-weight: var(--black);
+}
+
+/* Size: 60px */
+@utility text-60-thin {
+	font-size: var(--text-60);
+	font-weight: var(--thin);
+}
+@utility text-60-extralight {
+	font-size: var(--text-60);
+	font-weight: var(--extralight);
+}
+@utility text-60-light {
+	font-size: var(--text-60);
+	font-weight: var(--light);
+}
+@utility text-60-regular {
+	font-size: var(--text-60);
+	font-weight: var(--regular);
+}
+@utility text-60-medium {
+	font-size: var(--text-60);
+	font-weight: var(--medium);
+}
+@utility text-60-semibold {
+	font-size: var(--text-60);
+	font-weight: var(--semibold);
+}
+@utility text-60-bold {
+	font-size: var(--text-60);
+	font-weight: var(--bold);
+}
+@utility text-60-extrabold {
+	font-size: var(--text-60);
+	font-weight: var(--extrabold);
+}
+@utility text-60-black {
+	font-size: var(--text-60);
+	font-weight: var(--black);
+}
+
+/* Size: 72px */
+@utility text-72-thin {
+	font-size: var(--text-72);
+	font-weight: var(--thin);
+}
+@utility text-72-extralight {
+	font-size: var(--text-72);
+	font-weight: var(--extralight);
+}
+@utility text-72-light {
+	font-size: var(--text-72);
+	font-weight: var(--light);
+}
+@utility text-72-regular {
+	font-size: var(--text-72);
+	font-weight: var(--regular);
+}
+@utility text-72-medium {
+	font-size: var(--text-72);
+	font-weight: var(--medium);
+}
+@utility text-72-semibold {
+	font-size: var(--text-72);
+	font-weight: var(--semibold);
+}
+@utility text-72-bold {
+	font-size: var(--text-72);
+	font-weight: var(--bold);
+}
+@utility text-72-extrabold {
+	font-size: var(--text-72);
+	font-weight: var(--extrabold);
+}
+@utility text-72-black {
+	font-size: var(--text-72);
+	font-weight: var(--black);
+}
+
+/* Size: 96px */
+@utility text-96-thin {
+	font-size: var(--text-96);
+	font-weight: var(--thin);
+}
+@utility text-96-extralight {
+	font-size: var(--text-96);
+	font-weight: var(--extralight);
+}
+@utility text-96-light {
+	font-size: var(--text-96);
+	font-weight: var(--light);
+}
+@utility text-96-regular {
+	font-size: var(--text-96);
+	font-weight: var(--regular);
+}
+@utility text-96-medium {
+	font-size: var(--text-96);
+	font-weight: var(--medium);
+}
+@utility text-96-semibold {
+	font-size: var(--text-96);
+	font-weight: var(--semibold);
+}
+@utility text-96-bold {
+	font-size: var(--text-96);
+	font-weight: var(--bold);
+}
+@utility text-96-extrabold {
+	font-size: var(--text-96);
+	font-weight: var(--extrabold);
+}
+@utility text-96-black {
+	font-size: var(--text-96);
+	font-weight: var(--black);
+}

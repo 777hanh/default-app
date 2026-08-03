@@ -1,0 +1,30 @@
+<script setup lang="ts">
+import { storeToRefs } from 'pinia';
+import { useThemeStore } from '~/stores/themeStore';
+import '~/assets/css/main.css';
+
+// useFontAwesome();
+
+const themeStore = useThemeStore();
+
+const { isDark } = storeToRefs(themeStore);
+const { toggleDark } = themeStore;
+
+useHead({
+	htmlAttrs: {
+		class: computed(() => (isDark.value ? 'dark' : '')),
+	},
+});
+</script>
+
+<template>
+	<div>
+		<div class="flex justify-center">
+			<button class="mx-auto border-4 border-indigo-500 p-2 text-red-500" @click="toggleDark">
+				Toggle dark mode
+			</button>
+		</div>
+		<NuxtRouteAnnouncer />
+		<NuxtWelcome />
+	</div>
+</template>

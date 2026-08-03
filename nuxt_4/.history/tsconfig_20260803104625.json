@@ -1,0 +1,16 @@
+{
+	"extends": "./.nuxt/tsconfig.json",
+	"include": [".nuxt/nuxt.d.ts", "app.config.ts", "nuxt.config.ts"],
+	"compilerOptions": {
+		"ignoreDeprecations": "5.0",
+		"composite": false,
+		"noEmit": true,
+		"allowJs": true,
+		"checkJs": false,
+		"baseUrl": ".",
+		"paths": {
+			"@/*": ["./app/*"],
+			"~/*": ["./app/*"]
+		}
+	}
+}
